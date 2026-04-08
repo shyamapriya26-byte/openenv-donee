@@ -14,7 +14,7 @@ dependencies = [
 ]
 
 [project.scripts]
-openenv-done-server = "server.app:app"
+openenv-done-server = "server.app:main"
 
 [build-system]
 requires = ["setuptools>=61.0"]
