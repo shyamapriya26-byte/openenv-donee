@@ -7,8 +7,8 @@ RUN pip install --no-cache-dir -r requirements.txt
 
 COPY . .
 
-# Use PORT environment variable (set by Hugging Face)
 ENV PORT=7860
 EXPOSE $PORT
 
+# Run your root app.py (not the server wrapper)
 CMD uvicorn app:app --host 0.0.0.0 --port $PORT
