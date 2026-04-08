@@ -10,5 +10,4 @@ COPY . .
 ENV PORT=7860
 EXPOSE $PORT
 
-# Run your root app.py (not the server wrapper)
 CMD uvicorn app:app --host 0.0.0.0 --port $PORT
