@@ -14,7 +14,7 @@ dependencies = [
 ]
 
 [project.scripts]
-server = "server:main"   # ← Now points to a main() function
+server = "server.app:main"
 
 [build-system]
 requires = ["setuptools>=61.0"]
