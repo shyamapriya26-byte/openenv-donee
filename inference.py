@@ -3,8 +3,8 @@ import requests
 from openai import OpenAI
 
 # Use getenv with defaults so the script doesn't crash if variables are missing
-API_BASE_URL = os.getenv("API_BASE_URL", "https://api.openai.com/v1")
-MODEL_NAME = os.getenv("MODEL_NAME", "gpt-3.5-turbo")
+API_BASE_URL = os.getenv("API_BASE_URL", "https://router.huggingface.co/v1")
+MODEL_NAME = os.getenv("MODEL_NAME", "Qwen/Qwen2.5-72B-Instruct")
 HF_TOKEN = os.getenv("HF_TOKEN", "")
 
 ENV_URL = "https://shyamapriya-openenv-done.hf.space"
