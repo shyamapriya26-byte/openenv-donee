@@ -24,14 +24,9 @@ action_space:
 reward_range: [0.0, 1.0]
 
 tasks:
-  - name: internet_not_working
-    description: User reports the internet is not working
-    grader: grader.grade_internet_not_working
-
-  - name: slow_laptop
-    description: User's laptop is running slowly
-    grader: grader.grade_slow_laptop
-
-  - name: wifi_disconnecting
-    description: WiFi keeps disconnecting
-    grader: grader.grade_wifi_disconnecting
+  - name: easy
+    description: Simple customer issues
+  - name: medium
+    description: Moderate complexity issues
+  - name: hard
+    description: Complex or varied issues
