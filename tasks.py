@@ -1,10 +1,29 @@
 # tasks.py
 
+from grader import (
+    grade_internet_not_working,
+    grade_slow_laptop,
+    grade_wifi_disconnecting,
+    grade_battery_draining_fast
+)
+
+# ========== TASKS WITH EMBEDDED GRADERS ==========
+# Each task is a dictionary with "name" and "grader" fields.
+# This structure is required by the validation system.
+
 TASKS = {
-    "easy": ["internet not working"],
-    "medium": ["slow laptop"],
-    "hard": ["wifi disconnecting", "battery draining fast"]
+    "easy": [
+        {"name": "internet not working", "grader": grade_internet_not_working}
+    ],
+    "medium": [
+        {"name": "slow laptop", "grader": grade_slow_laptop}
+    ],
+    "hard": [
+        {"name": "wifi disconnecting", "grader": grade_wifi_disconnecting},
+        {"name": "battery draining fast", "grader": grade_battery_draining_fast}
+    ]
 }
+
 
 ISSUES = {
     "internet not working": [
@@ -21,27 +40,3 @@ ISSUES = {
         ["ask_issue", "suggest_close_apps", "confirm_fix"]
     ]
 }
-
-# ========== IMPORT GRADERS ==========
-from grader import (
-    grade_internet_not_working,
-    grade_slow_laptop,
-    grade_wifi_disconnecting
-)
-
-# ========== REGISTER TASKS WITH GRADERS ==========
-
-# Format 1: List 
-TASKS_WITH_GRADERS = [
-    ("internet not working", grade_internet_not_working),
-    ("slow laptop", grade_slow_laptop),
-    ("wifi disconnecting", grade_wifi_disconnecting),
-]
-
-# Format 2: Dictionary 
-GRADERS = {
-    "internet not working": grade_internet_not_working,
-    "slow laptop": grade_slow_laptop,
-    "wifi disconnecting": grade_wifi_disconnecting,
-}
-
