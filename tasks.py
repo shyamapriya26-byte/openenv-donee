@@ -1,3 +1,5 @@
+# tasks.py
+
 TASKS = {
     "easy": ["internet not working"],
     "medium": ["slow laptop"],
@@ -19,3 +21,27 @@ ISSUES = {
         ["ask_issue", "suggest_close_apps", "confirm_fix"]
     ]
 }
+
+# ========== IMPORT GRADERS ==========
+from grader import (
+    grade_internet_not_working,
+    grade_slow_laptop,
+    grade_wifi_disconnecting
+)
+
+# ========== REGISTER TASKS WITH GRADERS ==========
+
+# Format 1: List 
+TASKS_WITH_GRADERS = [
+    ("internet not working", grade_internet_not_working),
+    ("slow laptop", grade_slow_laptop),
+    ("wifi disconnecting", grade_wifi_disconnecting),
+]
+
+# Format 2: Dictionary 
+GRADERS = {
+    "internet not working": grade_internet_not_working,
+    "slow laptop": grade_slow_laptop,
+    "wifi disconnecting": grade_wifi_disconnecting,
+}
+
