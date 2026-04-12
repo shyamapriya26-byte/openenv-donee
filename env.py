@@ -1,7 +1,7 @@
 import random
 from models import Observation
 from tasks import TASK_DIFFICULTY_MAP, ISSUES
-from grader import grade_action
+from grader import grade_action   # keep grade_action for step()
 
 class SupportEnv:
     def __init__(self):
@@ -35,7 +35,6 @@ class SupportEnv:
 
         done = self.current_step >= len(self.current_path)
 
-        # efficiency scoring
         if done:
             if self.steps_taken == len(self.current_path):
                 reward = min(1.0, reward + 0.2)
