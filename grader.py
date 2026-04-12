@@ -1,12 +1,4 @@
 # grader.py
-def grade_action(action, correct_action):
-    if action == correct_action:
-        return 1.0
-    elif action.startswith("suggest") and correct_action.startswith("suggest"):
-        return 0.5
-    else:
-        return 0.0
-
 def grade_internet_not_working(sample, item=None):
     if not isinstance(sample, list):
         return 0.0
@@ -39,3 +31,11 @@ def grade_wifi_disconnecting(sample, item=None):
     if sample and sample[-1] == "confirm_fix":
         return 0.5
     return 0.0
+
+def grade_action(action, correct_action):
+    if action == correct_action:
+        return 1.0
+    elif action.startswith("suggest") and correct_action.startswith("suggest"):
+        return 0.5
+    else:
+        return 0.0
