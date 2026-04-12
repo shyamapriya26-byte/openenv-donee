@@ -20,7 +20,7 @@ TASKS = [
     }
 ]
 
-# These are for your env.py (rename to avoid conflict)
+# These are for env.py (renamed to avoid conflict with TASKS above)
 TASK_DIFFICULTY_MAP = {
     "easy": ["internet_not_working"],
     "medium": ["slow_laptop"],
