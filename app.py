@@ -12,7 +12,6 @@ def home():
 @app.post("/reset")
 def reset(difficulty: str = "easy"):
     obs = env.reset(difficulty)
-    # obs is an Observation object from models.py
     return {
         "observation": {
             "issue": obs.issue,
