@@ -1,12 +1,7 @@
 # tasks.py
-from grader import (
-    grade_internet_not_working,
-    grade_slow_laptop,
-    grade_wifi_disconnecting,
-    grade_action      # keep this so env.py can import it
-)
+from grader import grade_action      # keep for env.py
 
-# ========== KEEP YOUR ORIGINAL DICTIONARIES ==========
+# ========== ORIGINAL DICTIONARIES (for env.py) ==========
 TASKS = {
     "easy": ["internet not working"],
     "medium": ["slow laptop"],
@@ -29,24 +24,24 @@ ISSUES = {
     ]
 }
 
-# ========== ADD THIS FOR VALIDATION ==========
+# ========== FOR VALIDATION – use string paths ==========
 tasks = [
     {
         "name": "internet not working",
         "difficulty": "easy",
-        "grader": grade_internet_not_working,
+        "grader": "grader.grade_internet_not_working",
         "description": "User reports no internet connection."
     },
     {
         "name": "slow laptop",
         "difficulty": "medium",
-        "grader": grade_slow_laptop,
+        "grader": "grader.grade_slow_laptop",
         "description": "Laptop is running very slowly."
     },
     {
         "name": "wifi disconnecting",
         "difficulty": "hard",
-        "grader": grade_wifi_disconnecting,
+        "grader": "grader.grade_wifi_disconnecting",
         "description": "Wi-Fi keeps disconnecting."
     }
 ]
