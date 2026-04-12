@@ -7,7 +7,6 @@ def grade_action(action, correct_action):
     else:
         return 0.0
 
-# ========== ADD THESE FOR VALIDATION ==========
 def grade_internet_not_working(sample, item=None):
     if not isinstance(sample, list):
         return 0.0
