@@ -1,8 +1,9 @@
 # tasks.py
-from grader import grade_action      # keep for env.py
+from grader import grade_action
+from grader import grade_internet_not_working, grade_slow_laptop, grade_wifi_disconnecting
 
-# ========== ORIGINAL DICTIONARIES (for env.py) ==========
-TASKS = {
+# Renamed to avoid conflict with validator's expected TASKS list
+TASK_DIFFICULTY_MAP = {
     "easy": ["internet not working"],
     "medium": ["slow laptop"],
     "hard": ["wifi disconnecting", "battery draining fast"]
@@ -24,24 +25,24 @@ ISSUES = {
     ]
 }
 
-# ========== FOR VALIDATION – use string paths ==========
-tasks = [
+# This is what the validator looks for: TASKS (uppercase) with callable graders
+TASKS = [
     {
         "name": "internet not working",
         "difficulty": "easy",
-        "grader": "grader.grade_internet_not_working",
+        "grader": grade_internet_not_working,
         "description": "User reports no internet connection."
     },
     {
         "name": "slow laptop",
         "difficulty": "medium",
-        "grader": "grader.grade_slow_laptop",
+        "grader": grade_slow_laptop,
         "description": "Laptop is running very slowly."
     },
     {
         "name": "wifi disconnecting",
         "difficulty": "hard",
-        "grader": "grader.grade_wifi_disconnecting",
+        "grader": grade_wifi_disconnecting,
         "description": "Wi-Fi keeps disconnecting."
     }
 ]
