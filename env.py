@@ -1,6 +1,6 @@
 import random
 from models import Observation
-from tasks import TASKS, ISSUES
+from tasks import TASK_DIFFICULTY_MAP, ISSUES   # changed import
 from grader import grade_action
 
 class SupportEnv:
@@ -11,7 +11,7 @@ class SupportEnv:
         self.steps_taken = 0
 
     def reset(self, difficulty="easy"):
-        self.current_issue = random.choice(TASKS[difficulty])
+        self.current_issue = random.choice(TASK_DIFFICULTY_MAP[difficulty])   # changed
         self.current_path = random.choice(ISSUES[self.current_issue])
         self.current_step = 0
         self.steps_taken = 0
