@@ -6,6 +6,8 @@ description: >
 version: 0.1.0
 
 entry_point: env:SupportEnv
+tasks_file: tasks.py
+graders_file: grader.py          # <-- ADD THIS
 
 observation_space:
   type: object
@@ -22,11 +24,3 @@ action_space:
   description: Action taken by the agent (e.g., ask_issue, suggest_restart)
 
 reward_range: [0.0, 1.0]
-
-tasks:
-  - name: easy
-    description: Simple customer issues
-  - name: medium
-    description: Moderate complexity issues
-  - name: hard
-    description: Complex or varied issues
