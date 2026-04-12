@@ -1,26 +1,61 @@
 # tasks.py
+# Grader functions for validation (defined here, not in grader.py)
+def grade_internet_not_working(sample, item=None):
+    if not isinstance(sample, list):
+        return 0.0
+    perfect_paths = [
+        ["ask_issue", "suggest_restart", "confirm_fix"],
+        ["ask_issue", "check_cables", "confirm_fix"]
+    ]
+    if sample in perfect_paths:
+        return 1.0
+    if sample and sample[-1] == "confirm_fix":
+        return 0.5
+    return 0.0
+
+def grade_slow_laptop(sample, item=None):
+    if not isinstance(sample, list):
+        return 0.0
+    perfect_path = ["ask_issue", "suggest_cleanup", "confirm_fix"]
+    if sample == perfect_path:
+        return 1.0
+    if sample and sample[-1] == "confirm_fix":
+        return 0.5
+    return 0.0
+
+def grade_wifi_disconnecting(sample, item=None):
+    if not isinstance(sample, list):
+        return 0.0
+    perfect_path = ["ask_issue", "suggest_reconnect", "confirm_fix"]
+    if sample == perfect_path:
+        return 1.0
+    if sample and sample[-1] == "confirm_fix":
+        return 0.5
+    return 0.0
+
+# The tasks list – each grader is the function object itself
 TASKS = [
     {
         "name": "internet_not_working",
         "difficulty": "easy",
-        "grader": "grader.grade_internet_not_working",
+        "grader": grade_internet_not_working,
         "description": "User reports no internet connection."
     },
     {
         "name": "slow_laptop",
         "difficulty": "medium",
-        "grader": "grader.grade_slow_laptop",
+        "grader": grade_slow_laptop,
         "description": "Laptop is running very slowly."
     },
     {
         "name": "wifi_disconnecting",
         "difficulty": "hard",
-        "grader": "grader.grade_wifi_disconnecting",
+        "grader": grade_wifi_disconnecting,
         "description": "Wi-Fi keeps disconnecting."
     }
 ]
 
-# These are for env.py (renamed to avoid conflict with TASKS above)
+# For your environment (keep as is, but rename to avoid conflict with TASKS)
 TASK_DIFFICULTY_MAP = {
     "easy": ["internet_not_working"],
     "medium": ["slow_laptop"],
