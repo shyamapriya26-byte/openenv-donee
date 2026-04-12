@@ -1,39 +1,55 @@
 # grader.py
 
-def grade_action(action, correct_action):
-    if action == correct_action:
-        return 1.0
-    elif action.startswith("suggest") and correct_action.startswith("suggest"):
-        return 0.5
-    else:
+def grade_internet_not_working(sample, item=None):
+    """
+    Grader for 'internet not working' (easy task).
+    Returns 1.0 for perfect solution, 0.5 for partial, 0.0 otherwise.
+    """
+    if not isinstance(sample, list):
         return 0.0
-
-# ========== TASK-SPECIFIC GRADERS ==========
-# Each grader returns a score between 0.0 and 1.0
-
-def grade_internet_not_working(agent_actions, environment_state=None):
-    """Grader for the 'internet not working' task."""
-    valid_paths = [
+    
+    perfect_paths = [
         ["ask_issue", "suggest_restart", "confirm_fix"],
         ["ask_issue", "check_cables", "confirm_fix"]
     ]
-    if agent_actions in valid_paths:
+    if sample in perfect_paths:
         return 1.0
-    # Optional: partial credit if the last action is confirm_fix
-    if agent_actions and agent_actions[-1] == "confirm_fix":
+    
+    # Partial credit: last action is confirm_fix (agent tried to resolve)
+    if sample and sample[-1] == "confirm_fix":
         return 0.5
     return 0.0
 
-def grade_slow_laptop(agent_actions, environment_state=None):
-    """Grader for the 'slow laptop' task."""
-    valid_paths = [
-        ["ask_issue", "suggest_cleanup", "confirm_fix"]
-    ]
-    return 1.0 if agent_actions in valid_paths else 0.0
 
-def grade_wifi_disconnecting(agent_actions, environment_state=None):
-    """Grader for the 'wifi disconnecting' task."""
-    valid_paths = [
-        ["ask_issue", "suggest_reconnect", "confirm_fix"]
-    ]
-    return 1.0 if agent_actions in valid_paths else 0.0
+def grade_slow_laptop(sample, item=None):
+    """
+    Grader for 'slow laptop' (medium task).
+    """
+    if not isinstance(sample, list):
+        return 0.0
+    
+    perfect_path = ["ask_issue", "suggest_cleanup", "confirm_fix"]
+    if sample == perfect_path:
+        return 1.0
+    
+    # Partial credit: last action is confirm_fix
+    if sample and sample[-1] == "confirm_fix":
+        return 0.5
+    return 0.0
+
+
+def grade_wifi_disconnecting(sample, item=None):
+    """
+    Grader for 'wifi disconnecting' (hard task).
+    """
+    if not isinstance(sample, list):
+        return 0.0
+    
+    perfect_path = ["ask_issue", "suggest_reconnect", "confirm_fix"]
+    if sample == perfect_path:
+        return 1.0
+    
+    # Partial credit: last action is confirm_fix
+    if sample and sample[-1] == "confirm_fix":
+        return 0.5
+    return 0.0
