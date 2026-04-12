@@ -1,5 +1,4 @@
 # tasks.py
-# Grader functions for validation (defined here, not in grader.py)
 def grade_internet_not_working(sample, item=None):
     if not isinstance(sample, list):
         return 0.0
@@ -33,7 +32,6 @@ def grade_wifi_disconnecting(sample, item=None):
         return 0.5
     return 0.0
 
-# The tasks list – each grader is the function object itself
 TASKS = [
     {
         "name": "internet_not_working",
@@ -55,7 +53,7 @@ TASKS = [
     }
 ]
 
-# For your environment (keep as is, but rename to avoid conflict with TASKS)
+# For your env.py
 TASK_DIFFICULTY_MAP = {
     "easy": ["internet_not_working"],
     "medium": ["slow_laptop"],
