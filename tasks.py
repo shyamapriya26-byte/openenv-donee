@@ -1,48 +1,47 @@
 # tasks.py
 from grader import grade_action
-from grader import grade_internet_not_working, grade_slow_laptop, grade_wifi_disconnecting
 
-# Renamed to avoid conflict with validator's expected TASKS list
+# For environment internal use (renamed to avoid conflict)
 TASK_DIFFICULTY_MAP = {
-    "easy": ["internet not working"],
-    "medium": ["slow laptop"],
-    "hard": ["wifi disconnecting", "battery draining fast"]
+    "easy": ["internet_not_working"],
+    "medium": ["slow_laptop"],
+    "hard": ["wifi_disconnecting", "battery_draining_fast"]
 }
 
 ISSUES = {
-    "internet not working": [
+    "internet_not_working": [
         ["ask_issue", "suggest_restart", "confirm_fix"],
         ["ask_issue", "check_cables", "confirm_fix"]
     ],
-    "slow laptop": [
+    "slow_laptop": [
         ["ask_issue", "suggest_cleanup", "confirm_fix"]
     ],
-    "wifi disconnecting": [
+    "wifi_disconnecting": [
         ["ask_issue", "suggest_reconnect", "confirm_fix"]
     ],
-    "battery draining fast": [
+    "battery_draining_fast": [
         ["ask_issue", "suggest_close_apps", "confirm_fix"]
     ]
 }
 
-# This is what the validator looks for: TASKS (uppercase) with callable graders
+# For validator: TASKS list with grader as string path
 TASKS = [
     {
-        "name": "internet not working",
+        "name": "internet_not_working",
         "difficulty": "easy",
-        "grader": grade_internet_not_working,
+        "grader": "grader.grade_internet_not_working",
         "description": "User reports no internet connection."
     },
     {
-        "name": "slow laptop",
+        "name": "slow_laptop",
         "difficulty": "medium",
-        "grader": grade_slow_laptop,
+        "grader": "grader.grade_slow_laptop",
         "description": "Laptop is running very slowly."
     },
     {
-        "name": "wifi disconnecting",
+        "name": "wifi_disconnecting",
         "difficulty": "hard",
-        "grader": grade_wifi_disconnecting,
+        "grader": "grader.grade_wifi_disconnecting",
         "description": "Wi-Fi keeps disconnecting."
     }
 ]
