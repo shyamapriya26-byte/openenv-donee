@@ -3,7 +3,7 @@ description: Customer support RL environment
 version: 0.1.0
 entry_point: env:SupportEnv
 tasks_file: tasks.py
-graders_file: grader.py
+# DO NOT specify graders_file – graders are inside tasks.py
 observation_space:
   type: object
   properties:
