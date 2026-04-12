@@ -1,7 +1,26 @@
 # tasks.py
-from grader import grade_action
+TASKS = [
+    {
+        "name": "internet_not_working",
+        "difficulty": "easy",
+        "grader": "grader.grade_internet_not_working",
+        "description": "User reports no internet connection."
+    },
+    {
+        "name": "slow_laptop",
+        "difficulty": "medium",
+        "grader": "grader.grade_slow_laptop",
+        "description": "Laptop is running very slowly."
+    },
+    {
+        "name": "wifi_disconnecting",
+        "difficulty": "hard",
+        "grader": "grader.grade_wifi_disconnecting",
+        "description": "Wi-Fi keeps disconnecting."
+    }
+]
 
-# For environment internal use (renamed to avoid conflict)
+# These are for your env.py (rename to avoid conflict)
 TASK_DIFFICULTY_MAP = {
     "easy": ["internet_not_working"],
     "medium": ["slow_laptop"],
@@ -23,25 +42,3 @@ ISSUES = {
         ["ask_issue", "suggest_close_apps", "confirm_fix"]
     ]
 }
-
-# For validator: TASKS list with grader as string path
-TASKS = [
-    {
-        "name": "internet_not_working",
-        "difficulty": "easy",
-        "grader": "grader.grade_internet_not_working",
-        "description": "User reports no internet connection."
-    },
-    {
-        "name": "slow_laptop",
-        "difficulty": "medium",
-        "grader": "grader.grade_slow_laptop",
-        "description": "Laptop is running very slowly."
-    },
-    {
-        "name": "wifi_disconnecting",
-        "difficulty": "hard",
-        "grader": "grader.grade_wifi_disconnecting",
-        "description": "Wi-Fi keeps disconnecting."
-    }
-]
